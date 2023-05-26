@@ -13,8 +13,14 @@ function Navbars() {
             <Link to='/'>main</Link>
           </Navbar.Brand>         
           <Nav className='justify-content-end'>
-            <Nav>
-              <Link to='/User_create'>main</Link>
+            <Nav className='m-2'>
+              <Link to='/User_create'>create</Link>
+            </Nav>
+            {/* <Nav className='m-2'>
+              <Link to='/User_edit'>edit</Link>
+            </Nav> */}
+            <Nav className='m-2'>
+              <Link to='/User_list'>list</Link>
             </Nav>
           </Nav>
         </Container>
