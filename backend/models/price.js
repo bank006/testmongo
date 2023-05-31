@@ -3,15 +3,17 @@ const Schema = mongoose.Schema;
 
 
 let priceSchema = new Schema({
-    nameprice:{
-        type:String
-    },
+    
     price:{
         type:Number
+    },
+    date_at:{
+        type:Date
+
     }
 },{
     collection:'prices'
 })
 
 
-module.exports = mongoose.model('prices', priceSchema)
+module.exports = mongoose.model('prices', priceSchema);

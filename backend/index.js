@@ -38,17 +38,17 @@ const server = app.listen(port,()=>{
 })
 
 
-// app.use((req,res,next)=>{
-//      next((createError(404)))
-//  })
+app.use((req,res,next)=>{
+     next((createError(404)))
+ })
 
-//  app.use(function(err,res,req,next){
-//      console.error(err.message);
-//      if(!err.statusCode)err.statusCode = 500;
+ app.use(function(err,res,req,next){
+     console.error(err.message);
+     if(!err.statusCode)err.statusCode = 500;
 
-//      res.status(err.statusCode).json({
-//          message:err.message
-//      })
+     res.status(err.statusCode).json({
+         message:err.message
+     })
     
-//  })
+ })
 
