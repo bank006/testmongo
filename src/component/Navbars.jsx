@@ -16,9 +16,9 @@ function Navbars() {
             <Nav className='m-2'>
               <Link to='/User_create'>create</Link>
             </Nav>
-            {/* <Nav className='m-2'>
-              <Link to='/User_edit'>edit</Link>
-            </Nav> */}
+            <Nav className='m-2'>
+              <Link to='/Price_post'>price</Link>
+            </Nav> 
             <Nav className='m-2'>
               <Link to='/User_list'>list</Link>
             </Nav>

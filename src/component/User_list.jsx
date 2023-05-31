@@ -16,7 +16,8 @@ export default class user_list extends Component {
   componentDidMount(){
     axios.get('http://localhost:4000/users').then(res => {
       this.setState({
-        users:res.data
+        users:res.data,
+        count:res.count
       })
     })
     .catch((error ) => {
@@ -25,8 +26,8 @@ export default class user_list extends Component {
   }
 
   DataTable = () => {
-    return this.state.users.map((res , i) => {
-       return < UsertableRow obj={res} key={i}/>
+    return this.state.users.map((res , u) => {
+       return < UsertableRow obj={res} key={u}/>
     })
   }
 
