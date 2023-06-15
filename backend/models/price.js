@@ -5,10 +5,10 @@ const Schema = mongoose.Schema;
 let priceSchema = new Schema({
     
     price:{
-        type:Number
+        type:String
     },
     date_at:{
-        type:Date
+        type:String
 
     }
 },{

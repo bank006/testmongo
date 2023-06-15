@@ -32,6 +32,9 @@ export default class user_list extends Component {
   }
 
 
+  
+
+
   render() {
     return (
       <div className='Table-wrapper'>
@@ -48,6 +51,7 @@ export default class user_list extends Component {
               {this.DataTable()}
           </tbody>        
         </Table>
+        
       </div>
     )
   }

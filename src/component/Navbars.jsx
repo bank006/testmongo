@@ -22,6 +22,9 @@ function Navbars() {
             <Nav className='m-2'>
               <Link to='/User_list'>list</Link>
             </Nav>
+            <Nav className='m-2'>
+              <Link to='/Showcount'>count</Link>
+            </Nav>
           </Nav>
         </Container>
 

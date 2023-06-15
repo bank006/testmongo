@@ -15,6 +15,7 @@ import User_create from './component/user_create'
 import User_edite from './component/User_edite'
 import User_list from './component/user_list'
 import Price_post from './component/Price_post'
+import Showcouut from './component/Showcouut'
 
 
 
@@ -34,6 +35,7 @@ function App() {
           <Route path='/User_edit/:id' element={<User_edite/>}/>
           <Route path='/User_list' element={<User_list/>}/>
           <Route path='/Price_post' element={<Price_post/>}/>
+          <Route path='/Showcount' element={<Showcouut/>}/>
           
         </Routes>
       </div>
