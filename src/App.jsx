@@ -16,6 +16,7 @@ import User_edite from './component/User_edite'
 import User_list from './component/user_list'
 import Price_post from './component/Price_post'
 import Showcouut from './component/Showcouut'
+import Showsum from './component/Showsum'
 
 
 
@@ -36,6 +37,7 @@ function App() {
           <Route path='/User_list' element={<User_list/>}/>
           <Route path='/Price_post' element={<Price_post/>}/>
           <Route path='/Showcount' element={<Showcouut/>}/>
+          <Route path='/Showsum' element={<Showsum/>}/>
           
         </Routes>
       </div>

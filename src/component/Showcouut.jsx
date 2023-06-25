@@ -1,12 +1,14 @@
 
 import {React, useEffect, useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 
 
 function Showcouut() {
     const [data, setdata] = useState([])
     const [search , setsearch] = useState(``)
+    
 
 
     const fechData = async () =>{
@@ -26,23 +28,31 @@ function Showcouut() {
         
         fechData();
 
-    }
-    
 
+        
+    }
+   
+    
   return (
     <>
      <form onSubmit={handleSearchSubmit}>
                 <input type="date"   onChange={handleSearchChang} />
                 <button type="submit" >show price</button>
     </form>
+    
+
+    
 
     <ul>
         {data.map((sum)=>(
             <li key={sum._id}>
-                <h1 >{sum.price}</h1>
+                <h1 >{sum.totalprice}</h1>
+                
             </li>
         ))}
     </ul>
+   
+
     </>
   )
 }

@@ -25,6 +25,9 @@ function Navbars() {
             <Nav className='m-2'>
               <Link to='/Showcount'>count</Link>
             </Nav>
+            <Nav className='m-2'>
+            <Link to='/Showsum'>sum</Link>
+            </Nav>
           </Nav>
         </Container>
 

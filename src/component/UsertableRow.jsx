@@ -12,7 +12,7 @@ export default class UsertableRow extends Component {
         console.log(url)
 
         if(window.confirm("are you sure deleted data")){
-            axios.delete( url)
+            axios.delete(url)
                 .then((res) => {
                     console.log("deleted success" + res);
                 }).catch((err) => {
@@ -31,7 +31,7 @@ export default class UsertableRow extends Component {
         <td>{this.props.obj.email}</td>
         <td>{this.props.obj.rollno}</td>
         <td>
-            <Link className='edit-link btn btn-primary' to={"./User_edit/"+this.props.obj._id}>edit</Link>
+            <Link className='edit-link btn btn-primary' to={"/User_edit/"+this.props.obj._id}>edit</Link>
             <Button onClick={this.deleteUser} className='m-3' variant='danger' >deleted</Button>
         </td>
       </tr>

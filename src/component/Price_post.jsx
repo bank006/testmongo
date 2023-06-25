@@ -10,6 +10,7 @@ export default class Price_post extends Component {
         this.state = {
           price: '',
           date_at:''
+        //   date_at2:''
 
         }
       }
@@ -19,6 +20,7 @@ export default class Price_post extends Component {
       }
       OnChangDate = (e) => {
         this.setState({date_at: e.target.value })
+        // this.setState({date_at2: e.target.value })
       }
 
       Onsubmit = (e) => {
@@ -27,6 +29,7 @@ export default class Price_post extends Component {
         const priceObject = {
           price: this.state.price,
           date_at: this.state.date_at,
+        //   date_at2: this.state.date_at2,
 
         }
     
@@ -60,6 +63,7 @@ export default class Price_post extends Component {
             <Form.Group controlId='Name'>
               <Form.Label>Name</Form.Label>
               <Form.Control type='date' value={this.state.date_at} onChange={this.OnChangDate}/>
+              {/* <Form.Control type='date' value={this.state.date_at2} onChange={this.OnChangDate}/> */}
             </Form.Group>
             <Button className='mt-2' variant='success' size='lg' block="block" type='submit' >create user</Button>    
           </Form>

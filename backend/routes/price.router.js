@@ -5,7 +5,8 @@ const router = express();
 router.use(cors());
 router.use(express.json());
 
-let priceSchema = require('../models/price')
+let priceSchema = require('../models/price');
+const price = require('../models/price');
 
 
 router.get('/', (req,res)=>{
@@ -44,18 +45,52 @@ router.route('/Price_post').post((req , res , next)=>{
 //     })
 // })
 
+
+router.route('/sum/').get((req,res)=>{
+    priceSchema.aggregate([{$group:{_id:{'date_at':'$date_at'},'totalprice':{$sum:'$price'}}}],(err,data)=>{
+         if(err){
+             return next(err)
+         }else{
+             console.log(data)
+             res.send(data)
+         }
+
+     })
+ })
+
+
 router.get("/search/:key", async(req,res)=>{
     console.log (req.params.key)
-    let data = await priceSchema.find({
-        "$or":[
-            {"date_at":{$regex:(req.params.key)}}
-        ]
-    })
-    res.send(data)
+    // let data = await priceSchema.aggregate([{$match:{date_at:(req.params.key)}}])
+    let data = await priceSchema.aggregate([{$match:{date_at:(req.params.key)}},{$group:{_id:{'date_at':'$date_at'},'totalprice':{$sum:'$price'}}}])
+    res.status(200).json(data)
+    
+
+    
 })
+
 // router.get("/search/:key", async(req,res)=>{
 //     console.log (req.params.key)
-//     let data = await priceSchema.find([{"$ro":{price:{$regex:(req.params.key)}}}])
+//     let data = await priceSchema.find([{$group:{price:{$sum:('$price')},date_at:{$regex:(req.params.key)}}}])
+// })
+
+
+// router.get("/User_edit/:date_at", async(req,res)=>{
+//     console.log (req.params.date_at)
+//     let data = await priceSchema.find({
+//         "$or":[
+//             {"date_at":{$regex:(req.params.date_at)}}
+            
+
+//         ]
+//     },{price:'$price',date_at2:'$date_at'})
+//     res.status(200).json(data);
+// })
+
+
+// router.get("/search/:key", async(req,res)=>{
+//     console.log (req.params.key)
+//     let data = await priceSchema.find([{$group:{price:{$sum:('$price')},date_at:{$regex:(req.params.key)}}}])
 //     res.send(data)
 // })
 
