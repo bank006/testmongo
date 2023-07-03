@@ -47,7 +47,7 @@ router.route('/Price_post').post((req , res , next)=>{
 
 
 router.route('/sum/').get((req,res)=>{
-    priceSchema.aggregate([{$group:{_id:{'date_at':'$date_at'},'totalprice':{$sum:'$price'}}}],(err,data)=>{
+    priceSchema.aggregate([{$group:{_id:'$date_at','totalprice':{$sum:'$price'}}}],(err,data)=>{
          if(err){
              return next(err)
          }else{
@@ -59,14 +59,21 @@ router.route('/sum/').get((req,res)=>{
  })
 
 
-router.get("/search/:key", async(req,res)=>{
-    console.log (req.params.key)
+router.get("/search/:id", async(req,res)=>{
+    const pd = req.params.id
+    console.log (pd)
     // let data = await priceSchema.aggregate([{$match:{date_at:(req.params.key)}}])
-    let data = await priceSchema.aggregate([{$match:{date_at:(req.params.key)}},{$group:{_id:{'date_at':'$date_at'},'totalprice':{$sum:'$price'}}}])
-    res.status(200).json(data)
-    
+    let data = await priceSchema.aggregate([{$match:{date_at:(req.params.id)}},{$group:{_id: '$date_at','totalprice':{$sum:'$price'}}}])
+    res.status(200).json(data)  
+})
 
-    
+
+//fechdata detail of price 
+
+router.get("/fechdetail/:id", async(req , res)=>{
+    const id =  req.params.id;
+    let response = await priceSchema.aggregate([{$match:{date_at:`${id}`}}, {$project:{price:'$price',date_at:'$date_at'}}])
+    res.status(200).json(response)
 })
 
 // router.get("/search/:key", async(req,res)=>{
@@ -86,6 +93,8 @@ router.get("/search/:key", async(req,res)=>{
 //     },{price:'$price',date_at2:'$date_at'})
 //     res.status(200).json(data);
 // })
+
+
 
 
 // router.get("/search/:key", async(req,res)=>{

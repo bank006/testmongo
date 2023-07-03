@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
@@ -6,6 +6,8 @@ import axios from 'axios'
 export default class UsertableRow extends Component {
 
      deleteUser = () => {
+    
+      
 
         
         const url= 'http://localhost:4000/users/deleteUser/' + this.props.obj._id
@@ -31,7 +33,7 @@ export default class UsertableRow extends Component {
         <td>{this.props.obj.email}</td>
         <td>{this.props.obj.rollno}</td>
         <td>
-            <Link className='edit-link btn btn-primary' to={"/User_edit/"+this.props.obj._id}>edit</Link>
+            <Link className='edit-link btn btn-primary' to={"/detail/"+ this.props.obj._id}>edit</Link>
             <Button onClick={this.deleteUser} className='m-3' variant='danger' >deleted</Button>
         </td>
       </tr>

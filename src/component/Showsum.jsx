@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react'
 import { Table } from 'react-bootstrap';
-import UsertableRow from './UsertableRow';
+
 import SumtableRow from './SumtableRow';
 
 class Showsum extends Component {

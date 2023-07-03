@@ -8,10 +8,10 @@ export default class SumtableRow extends Component {
     return (
         <tr>
         <td>{this.props.obj.totalprice}</td>
-        <td>{this.props.obj._id.date_at}</td>
+        <td>{this.props.obj._id}</td>
         
         <td>
-            <Link className='edit-link btn btn-primary' to={"/User_edit/"+this.props.obj._id.date_at}>detail</Link>
+            <Link className='edit-link btn btn-primary' to={"/fechdetail/"+this.props.obj._id}>detail</Link>
             <Button onClick={this.deleteUser} className='m-3' variant='danger' >deleted</Button>
         </td>
       </tr>

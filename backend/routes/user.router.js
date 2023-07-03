@@ -53,7 +53,7 @@ router.route('/').get((req , res)=>{
     })
 })
 
-router.route('/User_edit/:id').get((req,res)=>{
+router.route('/detail/:id').get((req,res)=>{
     
     userSchema.findById(req.params.id , (error,data)=>{
         if(error){

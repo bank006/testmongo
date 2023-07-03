@@ -18,6 +18,9 @@ import Price_post from './component/Price_post'
 import Showcouut from './component/Showcouut'
 import Showsum from './component/Showsum'
 
+import Detail_user from './component/Detail_user'
+import UploadPR from './component/UploadPR'
+
 
 
 function App() {
@@ -31,13 +34,18 @@ function App() {
       
       <div className="main">
         <Routes>
+          <Route path='/detail/:id' element={<Detail_user/>}/>
           <Route  path='/' element={<User_create/>}/>
           <Route path='/User_create' element={<User_create/>}/>
-          <Route path='/User_edit/:id' element={<User_edite/>}/>
+          <Route path='/fechdetail/:id' element={<User_edite/>}/>
           <Route path='/User_list' element={<User_list/>}/>
           <Route path='/Price_post' element={<Price_post/>}/>
           <Route path='/Showcount' element={<Showcouut/>}/>
           <Route path='/Showsum' element={<Showsum/>}/>
+          <Route path='/Upload/:id_users' element={<UploadPR/>}/>
+          
+          
+          
           
         </Routes>
       </div>
